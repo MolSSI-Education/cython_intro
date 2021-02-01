@@ -1,3 +1,6 @@
+## Introduction to Cython
+This repository contains exercises for introductory cython.
+
 ## Requirements
 - [Cython](https://cython.readthedocs.io/en/latest/src/quickstart/install.html)
 - [C compiler](https://gcc.gnu.org/install)
