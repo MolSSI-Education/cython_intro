@@ -27,5 +27,5 @@ def integrate(low, high, Npts, **kwargs):
     **kwargs
        Additional keyword arguments
     """
-    dx = kwargs.get("dx") or (high - low) / Npts
+    dx = kwargs.get("dx", (high - low) / Npts)
     return dx * sum([kernel(low + i * dx) for i in range(Npts)])
