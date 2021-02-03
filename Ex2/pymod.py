@@ -14,7 +14,7 @@ def kernel(x, width=2):
     return normk * x**2 * math.exp(-(x ** 2) / width)
 
 
-def integrate(low, high, Npts, **kwargs):
+def integrate(low, high, npts, **kwargs):
     """Performs numerical integration of the kernel function.
     Parameters
     ----------
@@ -27,5 +27,5 @@ def integrate(low, high, Npts, **kwargs):
     **kwargs
        Additional keyword arguments
     """
-    dx = kwargs.get("dx", (high - low) / Npts)
-    return dx * sum([kernel(low + i * dx) for i in range(Npts)])
+    dx = kwargs.get("dx", (high - low) / npts)
+    return dx * sum([kernel(low + i * dx) for i in range(npts)])
