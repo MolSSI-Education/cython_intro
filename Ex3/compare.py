@@ -6,11 +6,14 @@ if __name__ == "__main__":
     # Python
     import pymod
 
-    time, result = timeit(pymod.integrate, iters=100, **kwargs)
-    print(f"Python: time = {time:.4f}s, result = {result:.4f}")
+    timep, resultp = timeit(pymod.integrate, iters=200, **kwargs)
+    print(f"Python: time = {timep:.4f}s, result = {resultp:.4f}")
 
     # Cython
     import cymod
 
-    time, result = timeit(cymod.integrate, iters=100, **kwargs)
-    print(f"Cython: time = {time:.4f}s, result = {result:.4f}")
+    timec, resultc = timeit(cymod.integrate, iters=200, **kwargs)
+    print(f"Cython: time = {timec:.4f}s, result = {resultc:.4f}")
+
+    # Relative speedup
+    print(f"Cython/python speedup: {timep/timec}")
