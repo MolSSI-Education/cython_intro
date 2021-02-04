@@ -7,10 +7,10 @@ if __name__ == "__main__":
     import pymod
 
     time, result = timeit(pymod.integrate, iters=100, **kwargs)
-    print(f"Python: time = {time:.4f}, result = {result:.4f}")
+    print(f"Python: time = {time:.4f}s, result = {result:.4f}")
 
     # Cython
     import cymod
 
     time, result = timeit(cymod.integrate, iters=100, **kwargs)
-    print(f"Cython: time = {time:.4f}, result = {result:.4f}")
+    print(f"Cython: time = {time:.4f}s, result = {result:.4f}")
