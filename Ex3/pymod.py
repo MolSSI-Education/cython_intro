@@ -1,4 +1,4 @@
-import numpy
+import math
 
 
 def kernel(x, width=2):
@@ -10,8 +10,8 @@ def kernel(x, width=2):
     width: float, optional
        width of the distribution
     """
-    normk = 2.0 / (width * numpy.sqrt(width * numpy.pi))
-    return normk * x**2 * numpy.exp(-(x ** 2) / width)
+    normk = 2.0 / (width * math.sqrt(width * math.pi))
+    return normk * x**2 * math.exp(-(x ** 2) / width)
 
 
 def integrate(low, high, npts, **kwargs):
@@ -28,4 +28,4 @@ def integrate(low, high, npts, **kwargs):
        Additional keyword arguments
     """
     dx = kwargs.get("dx", (high - low) / npts)
-    return dx * numpy.sum(kernel(low + dx * numpy.arange(npts)))
+    return dx * sum([kernel(low + i * dx) for i in range(npts)])
