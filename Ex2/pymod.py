@@ -1,7 +1,7 @@
 import math
 
 
-def kernel(x, width=2):
+def kernel(x, width):
     """Returns the nornalized value of a Gaussian-like function.
     Parameters
     ----------
@@ -28,4 +28,5 @@ def integrate(low, high, npts, **kwargs):
        Additional keyword arguments
     """
     dx = kwargs.get("dx", (high - low) / npts)
-    return dx * sum([kernel(low + i * dx) for i in range(npts)])
+    width = kwargs.get("width", 4.0)
+    return dx * sum([kernel(low + i * dx, width) for i in range(npts)])
