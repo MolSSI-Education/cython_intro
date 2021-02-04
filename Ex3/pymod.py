@@ -1,7 +1,7 @@
 import math
 
 
-def kernel(x, width):
+def kernel(x, width=4.0):
     """Returns the nornalized value of a Gaussian-like function.
     Parameters
     ----------
@@ -11,7 +11,7 @@ def kernel(x, width):
        width of the distribution
     """
     normk = 2.0 / (width * math.sqrt(width * math.pi))
-    return normk * x**2 * math.exp(-(x ** 2) / width)
+    return normk * x ** 2 * math.exp(-(x ** 2) / width)
 
 
 def integrate(low, high, npts, **kwargs):
@@ -28,5 +28,4 @@ def integrate(low, high, npts, **kwargs):
        Additional keyword arguments
     """
     dx = kwargs.get("dx", (high - low) / npts)
-    width = kwargs.get("width", 4.0)
-    return dx * sum([kernel(low + i * dx, width) for i in range(npts)])
+    return dx * sum([kernel(low + i * dx) for i in range(npts)])
