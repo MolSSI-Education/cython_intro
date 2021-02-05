@@ -9,6 +9,12 @@ if __name__ == "__main__":
     timep, resultp = timeit(pymod.integrate, iters=200, **kwargs)
     print(f"Python: time = {timep:.4f}s, result = {resultp:.4f}")
 
+    # Numpy
+    import pymod_opt
+
+    timen, resultn = timeit(pymod_opt.integrate, iters=200, **kwargs)
+    print(f"NumPy: time = {timen:.4f}s, result = {resultn:.4f}")
+    
     # Cython
     import cymod
 
@@ -17,3 +23,4 @@ if __name__ == "__main__":
 
     # Relative speedup
     print(f"Cython/python speedup: {timep/timec}")
+    print(f"NumPy/python speedup: {timep/timen}")
