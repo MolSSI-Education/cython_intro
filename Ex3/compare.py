@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     timen, resultn = timeit(pymod_opt.integrate, iters=200, **kwargs)
     print(f"NumPy: time = {timen:.4f}s, result = {resultn:.4f}")
-    
+
     # Cython
     import cymod
 
@@ -22,5 +22,6 @@ if __name__ == "__main__":
     print(f"Cython: time = {timec:.4f}s, result = {resultc:.4f}")
 
     # Relative speedup
+    print("======================================")
     print(f"Cython/python speedup: {timep/timec}")
     print(f"NumPy/python speedup: {timep/timen}")
