@@ -22,7 +22,7 @@ def integrate(low, high, npts, **kwargs):
        Lower limit of the integral
     high: float
        Higher limit of the integral
-    Npts: int
+    npts: int
        Number of points to evaluate the integral over
     **kwargs
        Additional keyword arguments
